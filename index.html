@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hive</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background-color: #000;
+      color: #eee;
+      font-family: Arial, sans-serif;
+      padding: 60px 15px 15px; /* Added padding to give space for fixed search bar */
+      margin: 0;
+    }
+
+    /* Search Bar Styling */
+    .search-box {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #111;
+      padding: 10px;
+      z-index: 1000; /* Make sure the search bar stays on top */
+      border-bottom: 1px solid #444;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 15px;
+      border-radius: 50px; /* Making the edges rounded (bubble shape) */
+      border: 3px solid #00ff00; /* Green border */
+      background-color: #111;
+      color: #fff;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input[type="text"]:focus {
+      border-color: #00ff00; /* Green border on focus */
+    }
+
+    /* Movie Block Styling */
+    .movie {
+      background: #111;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .movie img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover; /* Ensure the image doesn't get stretched */
+    }
+
+    .movie h2 {
+      color: #0f0;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .movie p {
+      font-size: 14px;
+      margin: 10px 0;
+    }
+
+    .movie a {
+      color: #00afff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* For small devices, ensure the content adjusts */
+    @media screen and (max-width: 600px) {
+      .movie {
+        padding: 8px;
+      }
+
+      .movie img {
+        width: 100%;
+        height: auto;
+      }
+
+      .movie h2 {
+        font-size: 16px;
+      }
+
+      .movie p {
+        font-size: 12px;
+      }
+
+      input[type="text"] {
+        font-size: 14px;
+        padding: 12px;
+      }
+    }
+  </style>
+  <script>
+    function searchMovies() {
+      const input = document.getElementById("search").value.toLowerCase();
+      const movies = document.getElementsByClassName("movie");
+      for (let movie of movies) {
+        const title = movie.getElementsByTagName("h2")[0].innerText.toLowerCase();
+        movie.style.display = title.includes(input) ? "block" : "none";
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="search-box">
+    <input type="text" id="search" onkeyup="searchMovies()" placeholder="Search for movies...">
+  </div>
+
+  <h1>Welcome to Hive</h1>
+  <p>Explore top movies and where to watch or download.</p>
+
+  <!-- Movie Blocks -->
+  <div class="movie">
+    <img src="https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg" alt="The Shawshank Redemption">
+    <h2>The Shawshank Redemption (1994)</h2>
+    <p>A banker is imprisoned for a crime he didn’t commit and forms a bond with a fellow inmate.</p>
+    <p><strong>Watch/Download:</strong></p>
+    <ul>
+      <li><a href="#">Netflix</a></li>
+      <li><a href="#">Nkiri</a></li>
+      <li><a href="#">Netnaija</a></li>
+      <li><a href="#">Prime Video</a></li>
+    </ul>
+  </div>
+
+  <div class="movie">
+    <img src="https://image.tmdb.org/t/p/w500/edv5CZvWj09upOsy2Y6IwDhK8bt.jpg" alt="Inception">
+    <h2>Inception (2010)</h2>
+    <p>A thief who steals corporate secrets through use of dream-sharing technology is given the inverse task of planting an idea.</p>
+    <p><strong>Watch/Download:</strong></p>
+    <ul>
+      <li><a href="#">Netflix</a></li>
+      <li><a href="#">Nkiri</a></li>
+      <li><a href="#">Netnaija</a></li>
+      <li><a href="#">Prime Video</a></li>
+    </ul>
+  </div>
+
+  <div class="movie">
+    <img src="https://image.tmdb.org/t/p/w500/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg" alt="Avengers: Endgame">
+    <h2>Avengers: Endgame (2019)</h2>
+    <p>The Avengers assemble once more to reverse Thanos' actions and restore balance to the universe.</p>
+    <p><strong>Watch/Download:</strong></p>
+    <ul>
+      <li><a href="#">Netflix</a></li>
+      <li><a href="#">Nkiri</a></li>
+      <li><a href="#">Netnaija</a></li>
+      <li><a href="#">Prime Video</a></li>
+    </ul>
+  </div>
+
+  <div class="movie">
+    <img src="https://image.tmdb.org/t/p/w500/uGBVj3bEbCoZbDjjl9wTxcygko1.jpg" alt="Doctor Strange">
+    <h2>Doctor Strange (2016)</h2>
+    <p>A neurosurgeon embarks on a journey of healing only to be drawn into the world of the mystic arts.</p>
+    <p><strong>Watch/Download:</strong></p>
+    <ul>
+      <li><a href="#">Netflix</a></li>
+      <li><a href="#">Nkiri</a></li>
+      <li><a href="#">Netnaija</a></li>
+      <li><a href="#">Prime Video</a></li>
+    </ul>
+  </div>
+
+  <div class="movie">
+    <img src="https://image.tmdb.org/t/p/w500/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg" alt="Guardians of the Galaxy">
+    <h2>Guardians of the Galaxy (2014)</h2>
+    <p>A group of intergalactic criminals must pull together to stop a fanatical warrior from taking control of the universe.</p>
+    <p><strong>Watch/Download:</strong></p>
+    <ul>
+      <li><a href="#">Netflix</a></li>
+      <li><a href="#">Nkiri</a></li>
+      <li><a href="#">Netnaija</a></li>
+      <li><a href="#">Prime Video</a></li>
+    </ul>
+  </div>
+  
+  <div class="movie">
+    <img src="https://image.tmdb.org/t/p/w500/jnQmE2jV7vRlkuMW8XBAs6dZzmm.jpg" alt="John Wick">
+    <h2>John Wick (2014)</h2>
+    <p>A retired hitman seeks vengeance for the killing of his dog, a gift from his late wife.</p>
+    <p><strong>Watch/Download:</strong></p>
+    <ul>
+      <li><a href="#">Netflix</a></li>
+      <li><a href="#">Nkiri</a></li>
+      <li><a href="#">Netnaija</a></li>
+      <li><a href="#">Prime Video</a></li>
+    </ul>
+  </div>
+
+  <div class="movie">
+    <img src="https://image.tmdb.org/t/p/w500/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg" alt="Black Panther">
+    <h2>Black Panther (2018)</h2>
+    <p>T'Challa returns to Wakanda to take his rightful place as king, but faces a powerful enemy.</p>
+    <p><strong>Watch/Download:</strong></p>
+    <ul>
+      <li><a href="#">Netflix</a></li>
+      <li><a href="#">Nkiri</a></li>
+      <li><a href="#">Netnaija</a></li>
+      <li><a href="#">Prime Video</a></li>
+    </ul>
+  </div>
+
+  <div class="movie">
+    <img src="https://image.tmdb.org/t/p/w500/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg" alt="Avengers: Infinity War">
+    <h2>Avengers: Infinity War (2018)</h2>
+    <p>The Avengers must stop Thanos from gathering the Infinity Stones and wiping out half of life in the universe.</p>
+    <p><strong>Watch/Download:</strong></p>
+    <ul>
+      <li><a href="#">Netflix</a></li>
+      <li><a href="#">Nkiri</a></li>
+      <li><a href="#">Netnaija</a></li>
+      <li><a href="#">Prime Video</a></li>
+    </ul>
+  </div>
+
+  <div class="movie">
+    <img src="https://image.tmdb.org/t/p/w500/4q2NNj4S5dG2RLF9CpXsej7yXl.jpg" alt="Tenet">
+    <h2>Tenet (2020)</h2>
+    <p>An operative must manipulate time to prevent World War III in a mysterious world of international espionage.</p>
+    <p><strong>Watch/Download:</strong></p>
+    <ul>
+      <li><a href="#">Netflix</a></li>
+      <li><a href="#">Nkiri</a></li>
+      <li><a href="#">Netnaija</a></li>
+      <li><a href="#">Prime Video</a></li>
+    </ul>
+  </div>
+
+  <div class="movie">
+    <img src="https://image.tmdb.org/t/p/w500/tX0o4AdHpidgniTwfgfcWPdnBIP.jpg" alt="Logan">
+    <h2>Logan (2017)</h2>
+    <p>In the near future, a weary Logan cares for an ailing Professor X, but must protect a young mutant.</p>
+    <p><strong>Watch/Download:</strong></p>
+    <ul>
+      <li><a href="#">Netflix</a></li>
+      <li><a href="#">Nkiri</a></li>
+      <li><a href="#">Netnaija</a></li>
+      <li><a href="#">Prime Video</a></li>
+    </ul>
+  </div>
+  
+  <div class="movie">
+    <img src="https://image.tmdb.org/t/p/w500/5aGhaIHYuQbqlHWvWYqMCnj40y2.jpg" alt="The Martian">
+    <h2>The Martian (2015)</h2>
+    <p>An astronaut becomes stranded on Mars and must rely on his ingenuity to survive while awaiting rescue.</p>
+    <p><strong>Watch/Download:</strong></p>
+    <ul>
+      <li><a href="#">Netflix</a></li>
+      <li><a href="#">Nkiri</a></li>
+      <li><a href="#">Netnaija</a></li>
+      <li><a href="#">Prime Video</a></li>
+    </ul>
+  </div>
+
+  <div class="movie">
+    <img src="https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg" alt="Joker">
+    <h2>Joker (2019)</h2>
+    <p>In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society.</p>
+    <p><strong>Watch/Download:</strong></p>
+    <ul>
+      <li><a href="#">Netflix</a></li>
+      <li><a href="#">Nkiri</a></li>
+      <li><a href="#">Netnaija</a></li>
+      <li><a href="#">Prime Video</a></li>
+    </ul>
+  </div>
+
+  <!-- Additional Movies -->
+  <div class="movie">
+    <img src="https://image.tmdb.org/t/p/w500/A0knvX7rlwTyZSKj8H5NiARb45.jpg" alt="Cruella">
+    <h2>Cruella (2021)</h2>
+    <p>A young fashion designer sets out to make a name for herself, eventually becoming the villainous Cruella de Vil.</p>
+    <p><strong>Watch/Download:</strong></p>
+    <ul>
+      <li><a href="#">Disney+</a></li>
+      <li><a href="#">Nkiri</a></li>
+      <li><a href="#">Netnaija</a></li>
+      <li><a href="#">Prime Video</a></li>
+    </ul>
+  </div>
+
+  <div class="movie">
+    <img src="https://m.media-amazon.com/images/I/81zQJYpAO-L._AC_UF894,1000_QL80_.jpg" alt="Wonder Woman 1984 Poster">
+    <h2>Wonder Woman 1984 (2020)</h2>
+    <p>Diana Prince comes into conflict with the Soviet Union during the Cold War in the 1980s and finds a formidable foe in the form of the Cheetah.</p>
+    <p><strong>Watch/Download:</strong></p>
+    <ul>
+      <li><a href="#">Netflix</a></li>
+      <li><a href="#">Nkiri</a></li>
+      <li><a href="#">Netnaija</a></li>
+      <li><a href="#">Prime Video</a></li>
+    </ul>
+  </div>
+
+</body>
+</html>
